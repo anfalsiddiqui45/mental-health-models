@@ -8,6 +8,12 @@ Model evaluation considers multiple parameters including **Accuracy**, **Precisi
 
 Multiple machine learning and deep learning architectures are evaluated to study their performance, generalization ability, and failure modes in this context.
 
+## Dataset
+We use a publicly available dataset of user generated text related to mental health named as Sentiment Analysis for Mental Health by Suchintika Sarkar containing 51,000 records of user generated text and their corresponding label. 
+The original dataset contains multiple labels; for this study, we focus on three primary categories: stress, depression, and anxiety.  
+
+
+
 
 
 ## Problem Complexity and Challenges
@@ -17,7 +23,6 @@ Multiple machine learning and deep learning architectures are evaluated to study
 - Ethical risk of false positives
 
 ## Constraints
-- Limited labeled data
 - Moderate compute
 - Inference latency matters
 - Safety > raw accuracy
@@ -36,3 +41,4 @@ We start with Logistic Regression + TF-IDF to establish a transparent baseline.
 - Sarcasm
 - Indirect expressions
 - Overfitting on small datasets
+

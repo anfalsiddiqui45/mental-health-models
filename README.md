@@ -12,11 +12,10 @@ Multiple machine learning and deep learning architectures are evaluated to study
 We use a publicly available dataset of user generated text related to mental health named as Sentiment Analysis for Mental Health by Suchintika Sarkar containing 51,000 records of user generated text and their corresponding label. 
 The original dataset contains multiple labels; for this study, we focus on three primary categories: stress, depression, and anxiety.  
 
-
-
-
-
-## Problem Complexity and Challenges
+## Pipeline
+- EDA: Exploratory data analysis including null checks, class distribution, text length analysis, and example statements.
+- Data Preparation: Load data, clean, encode labels, stratified train-test split, save processed CSV files.
+- Baseline Model: TF-IDF vectorization with Logistic Regression for initial evaluation.
 - Overlapping linguistic cues
 - Short, informal text
 - High semantic ambiguity

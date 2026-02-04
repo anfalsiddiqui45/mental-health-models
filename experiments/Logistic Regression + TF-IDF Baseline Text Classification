@@ -1,0 +1,117 @@
+# Baseline Experiment — Logistic Regression + TF–IDF
+
+## Experiment ID
+baseline_lr_tfidf
+
+---
+
+## Objective
+Establish a simple, fast, and interpretable classical baseline for mental-health
+text classification. This model serves as a benchmark for comparison with
+semantic embeddings (SBERT) and deep learning architectures (CNN+LSTM, MLP).
+
+---
+
+## Dataset
+| Property | Value |
+|---------|--------|
+| Task | Multi-class text classification |
+| Classes | Normal, Depression, Anxiety, Stress |
+| Total samples | 7,635 |
+| Train/Test | processed/train.csv, processed/test.csv |
+
+---
+
+## Input Pipeline
+1. Raw text statements
+2. Lowercasing + basic cleaning
+3. TF–IDF vectorization
+   - ngram_range = (1,2)
+   - max_features = 20,000
+   - stop_words = english
+4. Sparse feature matrix → Logistic Regression
+
+---
+
+## Model
+| Component | Setting |
+|-----------|-----------|
+| Classifier | Logistic Regression |
+| max_iter | 1000 |
+| class_weight | balanced |
+| Features | TF–IDF |
+
+---
+
+## Evaluation Metrics
+- Accuracy
+- Precision / Recall / F1 (per-class)
+- Macro F1
+- Weighted F1
+- Confusion Matrix
+
+---
+
+## Results
+
+### Overall
+| Metric | Value |
+|---------|---------|
+| Accuracy | **0.8821** |
+| Macro F1 | **0.8216** |
+| Weighted F1 | **0.8849** |
+
+### Per-Class Performance
+| Class | Precision | Recall | F1 | Support |
+|-----------|-----------|-----------|-----------|-----------|
+| Normal | 0.9208 | 0.9217 | 0.9213 | 3269 |
+| Depression | 0.9367 | 0.8741 | 0.9043 | 3081 |
+| Anxiety | 0.7799 | 0.8398 | 0.8088 | 768 |
+| Stress | 0.5809 | 0.7427 | 0.6520 | 517 |
+
+---
+
+## Artifacts
+Saved in `/results/`
+
+- lr_tfidf_classification_report.csv
+- lr_tfidf_metrics_summary.csv
+- confusion_matrix_lr_tfidf.png
+
+---
+
+## Findings
+- Strong performance on **Normal** and **Depression**
+- Acceptable performance on **Anxiety**
+- Weak precision on **Stress**
+- Balanced class weights improved recall for minority classes
+- Very fast training and low memory usage
+
+---
+
+## Failure Analysis
+- Misclassification mainly between:
+  - Anxiety ↔ Stress
+  - Depression ↔ Normal
+- TF–IDF cannot capture semantic similarity or emotional context
+- Performance limited by lexical-only features
+
+---
+
+## Limitations
+- No contextual understanding
+- Sparse high-dimensional vectors
+- Poor generalization to unseen phrasing
+- Classical linear boundary
+
+---
+
+## Conclusion
+Logistic Regression + TF–IDF provides a strong classical baseline with good
+accuracy and interpretability but struggles with subtle emotional categories.
+Deep or embedding-based methods are expected to outperform this baseline.
+
+---
+
+## Reproducibility
+Run:

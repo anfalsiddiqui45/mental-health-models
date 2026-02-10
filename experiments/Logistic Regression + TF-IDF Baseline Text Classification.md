@@ -34,7 +34,4 @@ Accuracy, per-class precision/recall/F1, macro F1, weighted F1, confusion matrix
 ## Limitations
 No contextual semantics, sparse high-dimensional vectors, sensitive to wording variation, linear classifier capacity only.
 High performance on majority classes (Normal, Depression). Moderate results for Anxiety. Lowest precision on Stress. Class imbalance and lexical-only features reduce discrimination between emotionally similar categories.
-## Artifacts
-results/confusion_matrix_lr_tfidf.png  
-results/lr_tfidf_classification_report.csv
 
